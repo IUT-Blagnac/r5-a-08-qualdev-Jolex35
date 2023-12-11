@@ -21,3 +21,5 @@ public void today_is_sunday() {
 image::artifacts-r303.svg[width=80%]
 
 == TP2...
+
+mvn archetype:generate -DarchetypeGroupId=io.cucumber -DarchetypeArtifactId=cucumber-archetype -DarchetypeVersion=7.14.1 -DgroupId=hellocucumber -DartifactId=hellocucumber -Dpackage=hellocucumber -Dversion=1.0.0-SNAPSHOT -DinteractiveMode=false
