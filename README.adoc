@@ -70,3 +70,57 @@ public class Order {
 ```
 
 image::img_tp2.png[width=80%]
+
+
+== TP3
+
+exports.feature
+``` Gherkin
+Feature: Checking for the "export default" statement in React files
+
+  Scenario Outline: Verify the presence of "export default" in a React file
+    Given I want to ensure that my React files have a default export
+    When I check the React file "<file_name>"
+    Then I should find the "<statement>" statement
+    Examples:
+      | file_name | statement |
+      | index.tsx | export default |
+```
+
+exports_steps.ts
+```javascript
+
+import * as fs from 'fs';
+import {Given, Then, When} from "@cucumber/cucumber";
+
+let fileContent: string;
+
+Given('I want to ensure that my React files have a default export', function () {
+    // You can add configurations or initializations here if needed
+    return 'pending'
+});
+
+When('I check the React file {string}', function (fileName: string) {
+    fileContent = fs.readFileSync(fileName, 'utf8');
+});
+
+Then('I should find the {string} statement', function (statement: string) {
+    const hasExportDefault = fileContent.includes(statement);
+    if (!hasExportDefault) {
+        throw new Error('The "export default" statement was not found in the file.');
+    }
+});
+```
+
+cucumber.js
+```
+module.exports = {
+    default: '--format progress-bar --publish-quiet',
+    require: ['./step_definitions/*.ts', './support/*.ts']
+};
+```
+
+J'ai essayé de tester la présence de la mention 'export default' correspondant à l'export d'un composant react.
+Cependant, je n'ai pas réussi à le faire fonctionner dans le temps que je m'étais donné pour réaliser ce TP.
+Je penses qu'il est nécessaire de prendre le temps de mieux comprendre la documentation de la librairie implémentant
+cucumber pour javascript et par extension typescript.
