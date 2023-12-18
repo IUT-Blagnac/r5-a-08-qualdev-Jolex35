@@ -124,3 +124,4 @@ J'ai essayé de tester la présence de la mention 'export default' correspondant
 Cependant, je n'ai pas réussi à le faire fonctionner dans le temps que je m'étais donné pour réaliser ce TP.
 Je penses qu'il est nécessaire de prendre le temps de mieux comprendre la documentation de la librairie implémentant
 cucumber pour javascript et par extension typescript.
+
